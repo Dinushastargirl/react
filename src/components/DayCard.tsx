@@ -18,10 +18,10 @@ const DayCard: React.FC<DayCardProps> = ({ day }) => {
       <motion.div 
         whileHover={{ scale: 1.03, y: -5 }}
         whileTap={{ scale: 0.98 }}
-        className={`relative h-full p-6 rounded-3xl border-2 transition-all duration-300 flex flex-col ${
+        className={`relative h-full p-6 rounded-3xl border-2 transition-all duration-300 flex flex-col card-${day.colorScheme} ${
           isCompleted 
-            ? 'bg-orange-50 border-orange-200 dark:bg-orange-900/20 dark:border-orange-800' 
-            : 'bg-white border-gray-100 dark:bg-gray-800 dark:border-gray-700 hover:border-orange-300 dark:hover:border-orange-700 shadow-lg hover:shadow-orange-200/50 dark:hover:shadow-none'
+            ? 'opacity-80' 
+            : 'shadow-lg'
         }`}
       >
         <div className="flex justify-between items-start mb-4">
@@ -38,7 +38,7 @@ const DayCard: React.FC<DayCardProps> = ({ day }) => {
         </div>
         
         <div className="mb-2">
-          <span className="text-xs font-black text-orange-500 uppercase tracking-tighter">Day {day.id}</span>
+          <span className={`text-xs font-black uppercase tracking-tighter text-${day.colorScheme}-500`}>Day {day.id}</span>
           <h3 className="text-xl font-bold dark:text-white leading-tight">{day.title}</h3>
         </div>
         
@@ -46,7 +46,7 @@ const DayCard: React.FC<DayCardProps> = ({ day }) => {
           {day.subtitle}
         </p>
         
-        <div className="flex items-center text-orange-600 font-bold text-sm group">
+        <div className={`flex items-center font-bold text-sm group text-${day.colorScheme}-600`}>
           Start Learning <ArrowRight className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" />
         </div>
       </motion.div>

@@ -215,7 +215,7 @@ const DayDetail: React.FC = () => {
               <ChevronLeft className="w-6 h-6 text-orange-500" />
             </Link>
           )}
-          <div className="px-4 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-full text-sm font-black">
+          <div className={`px-4 py-1 bg-${day.colorScheme}-100 dark:bg-${day.colorScheme}-900/30 text-${day.colorScheme}-600 dark:text-${day.colorScheme}-400 rounded-full text-sm font-black`}>
             DAY {day.id} / 10
           </div>
           {nextDayId && (
@@ -240,15 +240,15 @@ const DayDetail: React.FC = () => {
             <h1 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tighter">
               {day.title}
             </h1>
-            <p className="text-xl text-orange-500 font-bold">{day.subtitle}</p>
+            <p className={`text-xl font-bold text-${day.colorScheme}-500`}>{day.subtitle}</p>
           </div>
         </div>
       </section>
 
       {/* Explanation Section */}
-      <section className="bg-white dark:bg-gray-800 p-8 rounded-[2rem] shadow-xl border border-orange-100 dark:border-gray-700 relative overflow-hidden">
+      <section className={`bg-white dark:bg-gray-800 p-8 rounded-[2rem] shadow-xl border-4 border-sand-${day.colorScheme} dark:border-gray-700 relative overflow-hidden`}>
         {isELI12 && (
-          <div className="absolute top-4 right-4 px-3 py-1 bg-orange-500 text-white text-[10px] font-black rounded-full uppercase tracking-widest shadow-lg animate-bounce">
+          <div className={`absolute top-4 right-4 px-3 py-1 bg-${day.colorScheme}-500 text-white text-[10px] font-black rounded-full uppercase tracking-widest shadow-lg animate-bounce`}>
             ELI12 Mode Active 👶
           </div>
         )}
@@ -351,14 +351,14 @@ const DayDetail: React.FC = () => {
       <section className="pt-12 border-t border-gray-200 dark:border-gray-700">
         <div className={`p-10 rounded-[2.5rem] text-center transition-all duration-500 ${
           isCompleted 
-            ? 'bg-green-500 text-white shadow-green-200/50 shadow-2xl' 
+            ? `bg-${day.colorScheme}-500 text-white shadow-${day.colorScheme}-200/50 shadow-2xl` 
             : 'bg-white dark:bg-gray-800 border-4 border-dashed border-gray-200 dark:border-gray-700'
         }`}>
           {isCompleted ? (
             <motion.div initial={{ scale: 0.8 }} animate={{ scale: 1 }}>
               <CheckCircle2 className="w-20 h-20 mx-auto mb-4" />
               <h2 className="text-3xl font-black mb-2">Day {day.id} Mastered!</h2>
-              <p className="text-green-100 mb-8">You're doing amazing. Keep up the momentum!</p>
+              <p className={`text-${day.colorScheme}-100 mb-8`}>You're doing amazing. Keep up the momentum!</p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <button 
                   onClick={() => toggleDayComplete(day.id)}
@@ -369,7 +369,7 @@ const DayDetail: React.FC = () => {
                 {nextDayId && (
                   <button 
                     onClick={() => navigate(`/day/${nextDayId}`)}
-                    className="px-8 py-4 bg-white text-green-600 rounded-2xl font-bold shadow-xl hover:scale-105 transition"
+                    className={`px-8 py-4 bg-white text-${day.colorScheme}-600 rounded-2xl font-bold shadow-xl hover:scale-105 transition`}
                   >
                     Next Lesson: Day {nextDayId}
                   </button>
@@ -382,7 +382,7 @@ const DayDetail: React.FC = () => {
               <p className="text-gray-500 dark:text-gray-400 mb-8">Mark this day as complete to track your progress.</p>
               <button 
                 onClick={() => toggleDayComplete(day.id)}
-                className="px-12 py-5 bg-orange-500 text-white rounded-2xl font-black text-xl shadow-xl hover:bg-orange-600 hover:scale-105 transition active:scale-95"
+                className={`px-12 py-5 bg-${day.colorScheme}-500 text-white rounded-2xl font-black text-xl shadow-xl hover:bg-${day.colorScheme}-600 hover:scale-105 transition active:scale-95`}
               >
                 Complete Day {day.id} 🚀
               </button>

@@ -56,8 +56,7 @@ const Home: React.FC = () => {
           transition={{ delay: 0.1 }}
           className="text-5xl md:text-7xl font-black text-gray-900 dark:text-white tracking-tighter leading-none"
         >
-          Welcome to React <br />
-          <span className="text-orange-500">Crash Course 🚀</span>
+          REACT 🚀
         </motion.h1>
         
         <motion.p 

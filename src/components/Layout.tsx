@@ -22,7 +22,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 <Rocket className="text-white w-6 h-6" />
               </div>
               <span className="text-xl font-black text-gray-900 dark:text-white tracking-tighter">
-                REACT<span className="text-orange-500">CRASH</span>
+                REACT
               </span>
             </Link>
 
@@ -154,7 +154,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             Made with 🧡 for future React Masters.
           </p>
           <p className="text-gray-400 dark:text-gray-500 text-xs mt-2">
-            © 2026 React Crash Course. All rights reserved.
+            © 2026 REACT. All rights reserved.
           </p>
         </div>
       </footer>
