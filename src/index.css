@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  
+  /* Pastel Sand Palette */
+  --color-pastel-blue: #e0f2fe;
+  --color-pastel-green: #dcfce7;
+  --color-pastel-yellow: #fef9c3;
+  --color-pastel-pink: #fce7f3;
+  --color-pastel-orange: #ffedd5;
+  --color-pastel-purple: #f3e8ff;
+  
+  --color-sand-blue: #f0f9ff;
+  --color-sand-green: #f0fdf4;
+  --color-sand-yellow: #fefce8;
+  --color-sand-pink: #fdf2f8;
+  --color-sand-orange: #fff7ed;
+  --color-sand-purple: #faf5ff;
+  
+  --animate-spin-slow: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@layer base {
+  body {
+    @apply bg-[#faf9f6] dark:bg-gray-900 text-gray-900 dark:text-gray-100;
+  }
+}
+
+@layer components {
+  .prose-orange {
+    --tw-prose-links: theme('colors.orange.600');
+    --tw-prose-bold: theme('colors.gray.900');
+    --tw-prose-headings: theme('colors.gray.900');
+  }
+  
+  .dark .prose-orange {
+    --tw-prose-links: theme('colors.orange.400');
+    --tw-prose-bold: theme('colors.white');
+    --tw-prose-headings: theme('colors.white');
+  }
+
+  .card-blue { @apply bg-sand-blue border-pastel-blue dark:bg-blue-900/10 dark:border-blue-800; }
+  .card-green { @apply bg-sand-green border-pastel-green dark:bg-green-900/10 dark:border-green-800; }
+  .card-yellow { @apply bg-sand-yellow border-pastel-yellow dark:bg-yellow-900/10 dark:border-yellow-800; }
+  .card-pink { @apply bg-sand-pink border-pastel-pink dark:bg-pink-900/10 dark:border-pink-800; }
+  .card-orange { @apply bg-sand-orange border-pastel-orange dark:bg-orange-900/10 dark:border-orange-800; }
+  .card-purple { @apply bg-sand-purple border-pastel-purple dark:bg-purple-900/10 dark:border-purple-800; }
+}
